@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vault — Checkout</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="stage">
+
+  <!-- LEFT: vault / live card -->
+  <section class="vault">
+    <div class="vault-label"><span class="dot"></span>VAULT PREVIEW</div>
+
+    <div class="card-scene" id="cardScene">
+      <div class="card" id="card">
+        <div class="card-face card-front">
+          <div class="card-top-row">
+            <div class="chip"></div>
+            <div class="card-network" id="networkLabel"></div>
+          </div>
+          <div class="card-number" id="cardNumberDisplay">
+            <span class="grp">••••</span><span class="grp">••••</span><span class="grp">••••</span><span class="grp">••••</span>
+          </div>
+          <div class="card-bottom-row">
+            <div class="card-holder">
+              <span class="micro-label">CARD HOLDER</span>
+              <span class="card-holder-name" id="nameDisplay">YOUR NAME</span>
+            </div>
+            <div class="card-expiry">
+              <span class="micro-label">EXPIRES</span>
+              <span class="card-expiry-val" id="expiryDisplay">MM/YY</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-face card-back">
+          <div class="magstripe"></div>
+          <div class="cvv-strip">
+            <div class="panel"></div>
+            <div class="cvv-box" id="cvvDisplay">•••</div>
+          </div>
+          <div class="back-note">This card remains the property of the issuing bank and must be returned upon request. Use of this card is subject to the cardholder agreement.</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="vault-caption">Tilt reacts to your cursor. <strong>Flip</strong> happens automatically when you enter your security code.</p>
+  </section>
+
+  <!-- RIGHT: checkout form -->
+  <section class="checkout">
+    <div class="checkout-head">
+      <h1>Complete your payment</h1>
+      <p>Enter your card details to finish checkout.</p>
+    </div>
+
+    <div class="order-line">
+      <span class="item">Studio Membership — Annual</span>
+      <span class="amount">Rs. 248.00</span>
+    </div>
+
+    <form id="payForm" novalidate>
+      <div class="field">
+        <label for="cardNumber">Card number</label>
+        <input type="text" id="cardNumber" inputmode="numeric" placeholder="0000 0000 0000 0000" maxlength="19" autocomplete="cc-number" value="4111 1111 1111 1111">
+        <span class="err-msg" id="err-cardNumber">Enter a valid 16-digit card number</span>
+      </div>
+
+      <div class="field name">
+        <label for="cardName">Name on card</label>
+        <input type="text" id="cardName" placeholder="Jordan Blake" autocomplete="cc-name" value="Devraj Basnet">
+        <span class="err-msg" id="err-cardName">Enter the name as it appears on the card</span>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="expiry">Expiry date</label>
+          <input type="text" id="expiry" inputmode="numeric" placeholder="MM/YY" maxlength="5" autocomplete="cc-exp" value="12/29">
+          <span class="err-msg" id="err-expiry">Use MM/YY, not expired</span>
+        </div>
+        <div class="field">
+          <label for="cvv">Security code</label>
+          <input type="text" id="cvv" inputmode="numeric" placeholder="•••" maxlength="4" autocomplete="cc-csc" value="123">
+          <span class="err-msg" id="err-cvv">3 or 4 digits</span>
+        </div>
+      </div>
+
+      <button type="submit" class="pay-btn" id="payBtn">Pay Rs. 248.00</button>
+      <div class="secure-note">Encrypted end-to-end. Your details never leave this form in plain text.</div>
+    </form>
+
+    <div class="success-view" id="successView">
+      <div class="success-ring">✓</div>
+      <h2>Payment complete</h2>
+      <p>A receipt for Rs. 248.00 has been sent to your email.</p>
+    </div>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
